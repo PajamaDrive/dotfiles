@@ -1,3 +1,6 @@
 [submodule ".vim/pack/lexima.vim"]
 	path = .vim/pack/lexima.vim
 	url = git@github.com:cohama/lexima.vim.git
+[submodule ".vim/pack/resident/start/lexima.vim"]
+	path = .vim/pack/resident/start/lexima.vim
+	url = git@github.com:cohama/lexima.vim.git
