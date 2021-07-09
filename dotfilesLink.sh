@@ -11,7 +11,9 @@ for f in .??*; do
 	[ "$f" = ".git" ] && continue
 	[ "$f" = ".gitconfig.local.template" ] && continue
 	[ "$f" = ".gitmodules" ] && continue
-
+  if [ -d ~/"$f" ]; then
+    rm -rf ~/"$f"
+  fi
 	# シンボリックリンクを貼る
-	sudo ln -snfv ${PWD}/"$f" ~/
+	ln -snfv ${PWD}/"$f" ~/
 done
