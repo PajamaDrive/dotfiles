@@ -4,3 +4,21 @@
 [submodule ".vim/pack/resident/start/lexima.vim"]
 	path = .vim/pack/resident/start/lexima.vim
 	url = git@github.com:cohama/lexima.vim.git
+[submodule ".vim/pack/resident/start/vim-cheatsheet"]
+	path = .vim/pack/resident/start/vim-cheatsheet
+	url = git@github.com:reireias/vim-cheatsheet.git
+[submodule ".vim/pack/resident/start/winresizer"]
+	path = .vim/pack/resident/start/winresizer
+	url = git@github.com:simeji/winresizer.git
+[submodule ".vim/pack/resident/start/vim-airline"]
+	path = .vim/pack/resident/start/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
+[submodule ".vim/pack/resident/start/vim-airline-themes"]
+	path = .vim/pack/resident/start/vim-airline-themes
+	url = git@github.com:vim-airline/vim-airline-themes.git
+[submodule ".vim/pack/resident/start/vim-devicons"]
+	path = .vim/pack/resident/start/vim-devicons
+	url = git@github.com:ryanoasis/vim-devicons.git
+[submodule ".vim/pack/resident/start/vim-fugitive"]
+	path = .vim/pack/resident/start/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git

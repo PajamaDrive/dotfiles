@@ -66,9 +66,6 @@ set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" その他設定
-set clipboard=unnamedplus
-
 " キーバインド
 " 選択部分をクリップボードに切り取り
 vmap <C-X> "*d<ESC>
@@ -77,3 +74,51 @@ nnoremap <C-Z> u
 inoremap <C-Z> <ESC>ui
 " Yで行末までコピー
 nnoremap Y y$
+
+" vim-cheatsheet
+let g:cheatsheet#cheat_file = '~/.cheatsheet.md'
+
+" winresizer
+let g:winresizer_vert_resize = 1
+let g:winresizer_horiz_resize = 1
+
+" vim-airline
+let g:airline_theme = 'luna'
+set laststatus=2
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
+"let g:airline_section_c = '%t'
+function! AirlineInit()
+    let g:airline_section_a = airline#section#create(['mode', ' '])
+    let g:airline_section_b = airline#section#create_left(['branch', 'file'])
+    let g:airline_section_c = airline#section#create(['%{getcwd()}'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+let g:airline_section_x = '%{&filetype}'
+"let g:airline_section_z = '%3l:%2v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
+"let g:airline#extensions#ale#error_symbol = ' '
+"let g:airline#extensions#ale#warning_symbol = ' '
+let g:airline#extensions#default#section_truncate_width = {}
+nmap <C-p> <Plug>AirlineSelectPrevTab
+nmap <C-n> <Plug>AirlineSelectNextTabet g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_idx_format = {
+   \ '0': '0 ',
+   \ '1': '1 ',
+   \ '2': '2 ',
+   \ '3': '3 ',
+   \ '4': '4 ',
+   \ '5': '5 ',
+   \ '6': '6 ',
+   \ '7': '7 ',
+   \ '8': '8 ',
+   \ '9': '9 '
+   \}
+
+
+" その他設定
+set clipboard=unnamedplus
+set ttimeoutlen=50
