@@ -13,12 +13,24 @@ setopt AUTO_PARAM_KEYS
 setopt no_flow_control
 
 # alias
-alias pbcopy='xsel --clipboard --input'
+alias pbcopy='xsel --clipboard --input' #Macのpbcopyと同じ
 alias vi='vim'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias ls='ls -h --color=always'
+alias gs='git status'
+alias ga='git add --all'
+alias gan='git add -n --all'
+alias gc='git commit -m'
+alias gp='git push origin'
+alias gb='git branch'
+alias gsw='git switch'
+alias gswc='git switch -c'
+alias gd='git diff'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
 
 # Homebrew
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
