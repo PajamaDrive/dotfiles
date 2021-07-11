@@ -9,8 +9,16 @@ setopt AUTO_CD
 # 環境変数を補完する
 setopt AUTO_PARAM_KEYS
 
+# Ctrl-sとCtrl-qを有効にする
+setopt no_flow_control
+
 # alias
 alias pbcopy='xsel --clipboard --input'
+alias vi='vim'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias ls='ls -h --color=always'
 
 # Homebrew
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -65,14 +73,16 @@ zstyle ':completion:*:default' menu select=1
 zinit light zsh-users/zsh-autosuggestions
 source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-
-
 # zsh-syntaxhighlighting
 zinit light zsh-users/zsh-syntax-highlighting
 source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 ZSH_HIGHLIGHT_STYLES[path]='fg=yellow'
 ZSH_HIGHLIGHT_STYLES[globbing]='fg=yellow'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=white'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=white'
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan'
 
 # anyenv
 eval "$(anyenv init -)"
@@ -108,3 +118,17 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^G' peco-src
+
+# zsh-history-substring-search
+zinit light zsh-users/zsh-history-substring-search
+
+# enhanced
+zinit light b4b4r07/enhancd
+
+# zsh-completions
+zinit light zsh-users/zsh-completions
+
+# emojify
+zinit light b4b4r07/emoji-cli
+zinit light mrowa44/emojify
+export PATH="$PATH:$HOME/.zinit/plugins/mrowa44---emojify"
