@@ -118,7 +118,19 @@ let g:airline#extensions#tabline#buffer_idx_format = {
    \ '9': '9 '
    \}
 
+" vim-gitgutter
+" ghでdiffをハイライトする
+nnoremap gh :GitGutterLineHighlightsToggle<CR>
+" gpでカーソル行のdiffを表示する
+nnoremap gp :GitGutterPreviewHunk<CR>
+" 記号の色を変更する
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=blue
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterAddLine ctermbg=darkgreen ctermfg=lightgray
+highlight GitGutterChangeLine ctermbg=darkcyan ctermfg=lightgray
+highlight GitGutterDeleteLine ctermbg=darkred ctermfg=lightgray
+set updatetime=250
 
 " その他設定
 set clipboard=unnamedplus
-set ttimeoutlen=50
