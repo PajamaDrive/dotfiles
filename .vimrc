@@ -12,7 +12,6 @@ set hidden
 " 入力中のコマンドをステータスに表示する
 set showcmd
 
-
 " 見た目系
 " 行番号を表示
 set number
@@ -133,4 +132,5 @@ highlight GitGutterDeleteLine ctermbg=darkred ctermfg=lightgray
 set updatetime=250
 
 " その他設定
-set clipboard=unnamedplus
+set clipboard+=unnamed
+
