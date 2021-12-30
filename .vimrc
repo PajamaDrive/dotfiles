@@ -11,6 +11,10 @@ set autoread
 set hidden
 " 入力中のコマンドをステータスに表示する
 set showcmd
+" vi互換モードを無効化
+set nocompatible
+" vi互換モードを切るとbackspaceの挙動がおかしくなるので以下を設定
+set backspace=indent,eol,start
 
 " 見た目系
 " 行番号を表示
