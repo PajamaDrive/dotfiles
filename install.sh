@@ -39,20 +39,20 @@ cd $DOTFILES_DIR
 sh dotfilesLink.sh
 
 ## OSによってbrewで入れるソフトを変える
-[ -f $DOTFILES_DIR/.brew_`uname` ] && . brew bundle --file $DOTFILES_DIR/.brew_`uname`
+ [ -f $DOTFILES_DIR/.brew_`uname` ] && brew bundle --file $DOTFILES_DIR/.brew_`uname`
 
 ## 環境変数を有効にする
 source $HOME/.zshrc
 
 # VSCodeの設定
 
-VSCODE_SETTING_DIR=$HOME/.vscode-settings
+ VSCODE_SETTING_DIR=$HOME/.vscode-settings
 
 ## VSCodeの設定ファイルをローカルに持ってくる
-getGItRepository vscode-settings
+getGitRepository vscode-settings
 
-## VSCodeの拡張機能を入れる
-sh $VSCODE_SETTING_DIR/extensions.sh
+### VSCodeの拡張機能を入れる
+sh $VSCODE_SETTING_DIR/install.sh
 
 ## VSCodeの設定ファイルをコピー
 if [ `uname` = 'Darwin' ]; then
