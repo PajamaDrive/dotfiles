@@ -5,11 +5,13 @@
 * .starship.toml: Starshipの設定
 
 環境変数を一括で設定する際は以下のコマンドで行う
-curl -L raw.github.com/PajamaDrive/dotfiles/master/install.sh | bash
+
+`curl -L raw.github.com/PajamaDrive/dotfiles/master/install.sh | bash`
 
 ## Homwbrew
 Homebrewで入れたソフト一覧は以下で出力できる
-brew bundle dump --file $HOME/dotfiles/.brew_`` `uname` ``
+
+`brew bundle dump --file $HOME/dotfiles/.brew_`` `uname` `` `
 
 ### ソフト一覧
 anyenv: env系を一元管理
@@ -25,7 +27,8 @@ zinit: zshのプラグインマネージャ
 
 ## vimのプラグイン
 追加する際は以下のように行う
-git submodule add git@github.com:hogehoge.git ~/.vim/pack/resident/start
+
+`git submodule add git@github.com:hogehoge.git ~/.vim/pack/resident/start`
 
 dein.vimを使うとsubmoduleで持ってくるみたいなことをしなくて済むらしいので導入を考えたいところ
 
