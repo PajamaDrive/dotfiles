@@ -9,7 +9,7 @@ curl -L raw.github.com/PajamaDrive/dotfiles/master/install.sh | bash
 
 ## Homwbrew
 Homebrewで入れたソフト一覧は以下で出力できる
-brew bundle dump --file $HOME/dotfiles/.brew_`uname`
+brew bundle dump --file $HOME/dotfiles/.brew_`` `uname` ``
 
 ### ソフト一覧
 anyenv: env系を一元管理
