@@ -46,7 +46,10 @@ source $HOME/.zshrc
 
 # VSCodeの設定
 
-VSCODE_SETTING_DIR=$HOME/.vscode-setting
+VSCODE_SETTING_DIR=$HOME/.vscode-settings
+
+## VSCodeの設定ファイルをローカルに持ってくる
+getGItRepository vscode-settings
 
 ## VSCodeの拡張機能を入れる
 sh $VSCODE_SETTING_DIR/extensions.sh
