@@ -5,22 +5,22 @@ function getGitRepository() {
   # git が使えるなら git
   if type "git"; then
     git clone --recursive git@github.com:PajamaDrive/"$1".git
-
+    mv -f "$1" "$HOME/.$1"
   # 使えない場合は curl か wget を使用する
   elif type "curl" || type "wget"; then
     tarball="https://github.com/PajamaDrive/"$1"/archive/master.tar.gz"
 
-  # どっちかでダウンロードして，tar に流す
-  if type "curl"; then
-    curl -L "$tarball"
+    # どっちかでダウンロードして，tar に流す
+    if type "curl"; then
+      curl -L "$tarball"
 
-  elif type "wget"; then
-    wget -O - "$tarball"
+    elif type "wget"; then
+      wget -O - "$tarball"
 
-  fi | tar zxv
+    fi | tar zxv
 
-  # 解凍したら，別の場所 に置く  
-  mv -f "$1"-master "$HOME/.$1"
+    # 解凍したら，別の場所 に置く  
+    mv -f "$1"-master "$HOME/.$1"
 
   else
     die "curl or wget required"
@@ -38,11 +38,11 @@ cd $DOTFILES_DIR
 ## ホームディレクトリにシンボリックリンクを貼る
 sh dotfilesLink.sh
 
-## 環境変数を有効にする
-source $HOME/.zshrc
-
 ## OSによってbrewで入れるソフトを変える
 [ -f $DOTFILES_DIR/.brew_`uname` ] && . brew bundle --file $DOTFILES_DIR/.brew_`uname`
+
+## 環境変数を有効にする
+source $HOME/.zshrc
 
 # VSCodeの設定
 
