@@ -6,7 +6,7 @@
 
 環境変数を一括で設定する際は以下のコマンドで行う
 
-`curl -L raw.github.com/PajamaDrive/dotfiles/master/install.sh > install.sh && sh install.sh && rm install.sh`
+`curl -L raw.github.com/PajamaDrive/dotfiles/master/install.sh > install.sh && source install.sh && rm install.sh`
 
 ## Homwbrew
 Homebrewで入れたソフト一覧は以下で出力できる
