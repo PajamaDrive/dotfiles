@@ -13,7 +13,6 @@ setopt AUTO_PARAM_KEYS
 setopt no_flow_control
 
 # alias
-alias pbcopy='xsel --clipboard --input' #Macのpbcopyと同じ
 alias vi='vim'
 alias ll='ls -l'
 alias la='ls -a'
@@ -32,27 +31,17 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-# Homebrew
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
 # Starship
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.starship.toml
 
-# wslのシェルからwindowsのクリップボードにコピーするための設定
-if [ -e /mnt/c/Windows/System32/wsl.exe ]; then
-    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
-    # auto run vcxsrv
-    if [ -z "$(tasklist.exe | grep vcxsrv)" ]; then
-        cmd.exe /c config.xlaunch
-    fi
-fi
+[ -f $HOME/.zshrc_`uname` ] && . $HOME/.zshrc_`uname`
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+    command git clone git@github.com:zdharma-continuum/zinit "$HOME/.zinit/bin" && \
         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
@@ -64,10 +53,10 @@ autoload -Uz _zinit
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
+    zdharma-continuum/z-a-rust \
+    zdharma-continuum/z-a-as-monitor \
+    zdharma-continuum/z-a-patch-dl \
+    zdharma-continuum/z-a-bin-gem-node
 
 ### End of Zinit's installer chunk
 
@@ -83,11 +72,11 @@ zstyle ':completion:*:default' menu select=1
 
 # zsh-autosuggestions
 zinit light zsh-users/zsh-autosuggestions
-source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "$HOMEBREW_ZINIT_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # zsh-syntaxhighlighting
 zinit light zsh-users/zsh-syntax-highlighting
-source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$HOMEBREW_ZINIT_DIR/linuxbrew/.linuxbrew/shae/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 ZSH_HIGHLIGHT_STYLES[path]='fg=yellow,underline'
 ZSH_HIGHLIGHT_STYLES[globbing]='fg=yellow'

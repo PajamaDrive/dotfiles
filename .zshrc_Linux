@@ -1,0 +1,16 @@
+# alias
+alias pbcopy='xsel --clipboard --input' #Macのpbcopyと同じ
+
+# Homebrew
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+export HOMEBREW_ZINIT_DIR=/home/linuxbrew/.linuxbrew/share
+
+# wslのシェルからwindowsのクリップボードにコピーするための設定
+if [ -e /mnt/c/Windows/System32/wsl.exe ]; then
+    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+    # auto run vcxsrv
+    if [ -z "$(tasklist.exe | grep vcxsrv)" ]; then
+        cmd.exe /c config.xlaunch
+    fi
+fi
+

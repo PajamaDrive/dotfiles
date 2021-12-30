@@ -1,0 +1,4 @@
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_ZINIT_DIR=/opt/homebrew/share
+
