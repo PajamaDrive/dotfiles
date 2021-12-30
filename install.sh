@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # gitのリポジトリをローカルに持ってくる
+B
 function getGitRepository() {
   # git が使えるなら git
   if type "git"; then
@@ -27,6 +28,9 @@ function getGitRepository() {
   fi
 }
 
+# カレントディレクトリを記憶しておく
+CURRENT_DIR=`pwd`
+
 # dotfilesの設定
 
 DOTFILES_DIR=$HOME/.dotfiles
@@ -46,10 +50,11 @@ source $HOME/.zshrc
 
 # VSCodeの設定
 
- VSCODE_SETTING_DIR=$HOME/.vscode-settings
+VSCODE_SETTING_DIR=$HOME/.vscode-settings
 
 ## VSCodeの設定ファイルをローカルに持ってくる
 getGitRepository vscode-settings
+cd $VSCODE_SETTING_DIR
 
 ### VSCodeの拡張機能を入れる
 sh $VSCODE_SETTING_DIR/install.sh
@@ -61,3 +66,5 @@ elif [ `uname` = 'Linux' ]; then
   cp $VSCODE_SETTING_DIR/*.json $HOME/.config/Code/User/
 fi
 
+# 元いたディレクトリに戻る
+cd $CURRENT_DIR
