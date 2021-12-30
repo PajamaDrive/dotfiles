@@ -22,11 +22,24 @@ alias gs='git status'
 alias ga='git add --all'
 alias gan='git add -n --all'
 alias gc='git commit -m'
-alias gp='git push origin'
+alias gpl='git pull origin'
+alias gpld='gpl develop'
+alias gplm='gpl master'
+alias gps='git push -u origin'
+alias gpsf='git push -f origin'
 alias gb='git branch'
 alias gsw='git switch'
 alias gswc='git switch -c'
+alias gswd='gsw develop'
+alias gswm='gsw master'
 alias gd='git diff'
+alias gl='git log'
+alias glo='gl --oneline'
+alias glg='gl --graph'
+alias grb='git rebase'
+alias grsh='git reset --hard'
+alias grs='git reset'
+alias gcp='git cherry-pick'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
@@ -72,11 +85,9 @@ zstyle ':completion:*:default' menu select=1
 
 # zsh-autosuggestions
 zinit light zsh-users/zsh-autosuggestions
-source "$HOMEBREW_ZINIT_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # zsh-syntaxhighlighting
 zinit light zsh-users/zsh-syntax-highlighting
-source "$HOMEBREW_ZINIT_DIR/linuxbrew/.linuxbrew/shae/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 ZSH_HIGHLIGHT_STYLES[path]='fg=yellow,underline'
 ZSH_HIGHLIGHT_STYLES[globbing]='fg=yellow'
@@ -91,7 +102,7 @@ eval "$(anyenv init -)"
 # peco
 ## コマンド履歴検索
 function peco-history-selection() {
-  BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+  BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
   CURSOR=$#BUFFER
   zle reset-prompt
 }

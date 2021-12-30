@@ -1,5 +1,23 @@
 [ghq]
-	root = /home/pajama/git
+#	root = /home/pajama/git
+    root=hoge
 [user]
-	email = pajamadrive49@gmail.com
-	name = PajamaDrive
+  email = pajamadrive49@gmail.com
+  name = PajamaDrive
+[core]
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  features = decorations
+  side-by-side = true
+  plus-style = "syntax #012800"
+  minus-style = "syntax #340001"
+  syntax-theme = Monokai Extended
+  navigate = true
+  keep-plus-minus-markers = true
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow ul
+  hunk-header-decoration-style = yellow box
+  hunk-header-line-number-style = yellow
+
